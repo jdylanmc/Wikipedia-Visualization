@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Graph Visualization</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/Three.js"></script>
+		<script type="text/javascript" src="scripts/simple_graph.js"></script>
+		<script type="text/javascript" src="scripts/force-directed-layout.js"></script>
+		<script type="text/javascript" src="scripts/Label.js"></script>
+		<script type="text/javascript" src="scripts/ObjectSelection.js"></script>
+		<script type="text/javascript" src="scripts/requestAnimationFrame.js"></script>
+		<script type="text/javascript" src="scripts/Stats.js"></script>
+		<script type="text/javascript" src="scripts/threejs-interaction.js"></script>
+		<script type="text/javascript" src="scripts/Graph.js"></script>
+		<script type="text/javascript" src="scripts/Wikipedia.js"></script>
+
+
+					
+		<style type="text/css"> 
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #f0f0f0;
+				font: 11px courier;
+				overflow: hidden;
+			}
+			#graph-info {
+				padding-left: 10px;
+			}
+			#options {
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 10;
+				width: 250px;
+			}
+			.box-outter {
+				border-left: 1px solid black; 
+				border-bottom: 1px solid black; 
+				margin: 10px;
+			}
+			.box-inner {
+				padding-left: 5px;
+				padding-bottom: 5px;
+			}
+			.control-button {
+				width: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="options">
+				<div class="box-outter">
+					<div class="box-inner">
+						<form onsubmit="WIKI_parse(); return false;">
+							<p>
+								<h3>Wikipedia Visualization</h3>
+								Type in the box below to search for a topic on Wikipedia.  The topic and first 7 associated links will be displayed as nodes.  Click a node to further expand it's links.
+							</p>
+							<input type="text" id="input-text" />
+							<input type="button" value="Go" id="go-button">
+						<form>
+					</div>
+				</div>
+				<div class="box-outter">
+					<div class="box-inner">
+						<table align="center">
+							<tr>
+								<td>
+									<input type="button" value="Pause" onclick="Pause();" class="control-button">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="button" value="Adjust" onclick="Adjust();" class="control-button">
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="box-outter">
+					<div class="box-inner">
+						<p>
+							<h3>Stats:</h3>
+							<div id="graph-info"></div>
+						</p>
+					</div>
+				</div>
+				<div class="box-outter">
+					<div class="box-inner">
+						<h3>Controls</h3>
+						<table>
+							<tr>
+								<td>
+									Rotate:
+								</td>
+								<td>
+									Left Mouse Button
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Zoom:
+								</td>
+								<td>
+									S + Left Mouse Button
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Drag:
+								</td>
+								<td>
+									D + Left Mouse Button
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="box-outter">
+					<div class="box-inner">
+					<p>
+						Created for a graduate course at MTSU, circa 2011.  This project uses Three.js for rendering, and was inspired by a framework created by <a href="https://github.com/davidpiegza/Graph-Visualization">David Piegza</a>.
+					</p>
+					</div>
+				</div>
+		</div>		
+	</body>
+</html>
